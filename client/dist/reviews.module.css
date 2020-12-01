@@ -1,0 +1,229 @@
+.highlight {
+  background-color: yellow;
+}
+
+.displayInlineFlex {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.padding80 {
+  padding: 80px !important;
+}
+
+.paddingBottom32 {
+  padding-bottom: 32px !important;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.ratings, .reviews {
+  display: flex;
+  padding-bottom: 16px;
+}
+
+.rating {
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.ratingTable {
+  display: table;
+}
+
+.ratingTable > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.ratingBar {
+  background: #DDDDDD;
+  height: 4px;
+  width: 100px;
+  border-radius: 25px;
+}
+
+.ratingBar > span {
+  display: block;
+  height: 100%;
+  border-radius: 25px;
+  background-color: #222222;
+}
+
+.ratingsCategory {
+  line-height: 20px;
+  height: 36px;
+  width: 100%;
+}
+
+.review {
+  display: contents;
+  height: 208px;
+}
+
+.reviewComments {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reviewHeader {
+  display: table;
+  margin-bottom: 16px;
+}
+
+.reviewHeader > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.reviewDate {
+  color: #717171;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 12px;
+}
+
+.reviewReadMore {
+  color: #222222;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.reviewThumbnail {
+  border-radius: 50%;
+  height: 56px;
+  width: 56px;
+}
+
+.reviewUser {
+  font-weight: 600;
+  line-height: 20px;
+  margin-left: 12px;
+}
+
+.reviewsButton {
+  color: #222222;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffffff;
+  border-color: #222222;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 13px 23px;
+}
+
+.reviewsSearch {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border: none;
+  color: #222222;
+  background-color: #F7F7F7;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: #B0B0B0 0px 0px 0px 1px inset;
+  border-radius: 100px;
+  cursor: text;
+}
+
+.reviewsSearchInput {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0px 16px;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.reviewsSearchInput:focus {
+  outline: none;
+}
+
+.reviewsStar {
+  color: #FF385C;
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.reviewsTitle {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+modalWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 990;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 995;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 90%;
+  width: 90%;
+  z-index: 999;
+  border-radius: 12px;
+  padding: 2rem;
+  background: white;
+}
+
+.modalContent {
+  position: relative;
+  padding: 32px;
+  top: 32px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modalHeader {
+  position: fixed;
+  top: 0;
+  height: 32px;
+  padding-top: 32px;
+}
+
+.modalCloseButton {
+  font-size: 1.4rem;
+  line-height: 1;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.modalCloseButton:hover {
+  background-color: #CCCCCC;
+  border-radius: 50%;
+}
+
+

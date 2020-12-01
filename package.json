@@ -1,0 +1,53 @@
+{
+  "name": "airbnb-reviews",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "build:dev": "webpack --watch",
+    "lint": "eslint .",
+    "seed": "node database/generateReviewData.js",
+    "start": "node server/index.js",
+    "start:dev": "nodemon server/index.js",
+    "test": "jest"
+  },
+  "author": "Duy Nguyen",
+  "license": "None",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^4.5.3",
+    "classnames": "^2.2.6",
+    "enzyme": "^3.11.0",
+    "express": "^4.15.4",
+    "faker": "^5.1.0",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^4.13.21",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-highlighter": "^0.4.3",
+    "react-truncate": "^2.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.1",
+    "css-loader": "^5.0.1",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "eslint": "^7.13.0",
+    "eslint-plugin-react": "^7.21.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "jest-transform-css": "^2.1.0",
+    "nodemon": "^2.0.6",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.5.1",
+    "webpack-cli": "^4.2.0"
+  }
+}
