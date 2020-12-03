@@ -9,13 +9,14 @@
     "build:dev": "webpack --watch",
     "lint": "eslint .",
     "seed": "node database/generateReviewData.js",
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "start:dev": "nodemon server/index.js",
     "test": "jest"
   },
   "author": "Duy Nguyen",
   "license": "None",
   "dependencies": {
+    "axios": "^0.21.0",
     "body-parser": "^1.17.2",
     "bootstrap": "^4.5.3",
     "classnames": "^2.2.6",

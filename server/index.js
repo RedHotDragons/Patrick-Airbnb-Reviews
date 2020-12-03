@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/review');
 
+
 const app = express();
 const PORT = 3003;
 
@@ -19,6 +20,28 @@ app.get('/api/reviews/:id', (req, res) => {
     }
   });
 });
+
+app.delete('/api/deleteReviews', (req, res) => {
+  db.erase(req.body, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('successfully deleted data')
+    }
+    res.status(200).send(result)
+  })
+})
+app.post('/api/addReviews', (req, res) => {
+  db.add(req.body, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('successfully added data')
+    }
+    res.status(200).send(result)
+  })
+})
+
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
