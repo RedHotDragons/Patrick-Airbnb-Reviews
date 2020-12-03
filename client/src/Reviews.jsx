@@ -6,6 +6,7 @@ import Review from './Review.jsx';
 import ReviewsModal from './ReviewsModal.jsx';
 import globalStyles from '../dist/bootstrap.module.css';
 import styles from '../dist/reviews.module.css';
+import axios from 'axios';
 
 const MAX_REVIEWS = 6;
 
@@ -26,6 +27,33 @@ class Reviews extends React.Component {
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+  }
+  deleteReview() {
+    axios({
+      method: 'delete',
+      url: '/api/deleteReviews',
+      data: {
+        cleanliness: {$gt: 3}
+      }
+    })
+  }
+
+  addReview() {
+    axios.post('/api/addReviews', {
+      "listing_id" : 1,
+      "date" : "August 2030",
+      "reviewer_name" : "Patrick Ng",
+      "reviewer_picture" : "https://duysfaces.s3-us-west-1.amazonaws.com/Female/061f.jpg",
+      "comments" : "hi im a test, ignore me plz.",
+      "cleanliness" : 1,
+      "communication" : 1,
+      "check_in" : 1,
+      "accuracy" : 1,
+      "location" : 1,
+      "value" : 1
+  })
+  .then((response) => console.log(response))
+  .catch((err) => console.log(err))
   }
 
   componentDidMount() {
@@ -87,6 +115,7 @@ class Reviews extends React.Component {
     let { reviews, totalRating } = this.state;
 
     return (
+
       <div className={cx(globalStyles.row, globalStyles['pb-3'])}>
         <div className={cx(globalStyles['col-lg-12'], globalStyles['col-md-12'], globalStyles['col-sm-12'], globalStyles['col-xs-12'])}>
           <span className={styles.reviewsStar}>&#9733;</span>
@@ -101,6 +130,8 @@ class Reviews extends React.Component {
 
     return (
       <React.Fragment>
+        <button onClick={this.deleteReview}>delete</button>
+        <button onClick={this.addReview}>add</button>
         <div className={cx(globalStyles['d-none'], globalStyles['d-md-block'])}>
           <div className={cx(globalStyles.row, globalStyles['pb-3'])}>
             <div className={cx(globalStyles['col-lg-6'], globalStyles['col-md-6'], globalStyles['col-sm-12'], globalStyles['col-xs-12'])}>

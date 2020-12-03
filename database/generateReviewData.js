@@ -59,7 +59,10 @@ var generateReviewsPerListing = function(listing_id) {
     .catch(error => {
       console.log('MongoDB error:', error);
     });
+    // Review.remove({listing_id});
 };
+
+
 
 var generateReviews = function(numOfListings) {
   for (let i = 0; i < numOfListings; i++) {
@@ -68,3 +71,11 @@ var generateReviews = function(numOfListings) {
 };
 
 generateReviews(100);
+
+
+
+// const update = (data, callback) => {
+//   Review.update()
+// }
+
+// module.exports.erase = erase;
