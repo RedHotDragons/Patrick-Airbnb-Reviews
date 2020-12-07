@@ -39,13 +39,13 @@
 
   * **URL**
 
-  `/api/deleteReviews`
+  `/api/deleteReviews/:id`
 
   * **SAMPLE**
 
   `axios({
       method: 'delete',
-      url: '/api/deleteReviews',
+      url: '/api/deleteReviews/${this.props.listingId}',
       data: {
         cleanliness: {$gt: 3}
       }
@@ -67,11 +67,11 @@
 
   * **URL**
 
-  `/api/addReviews`
+  `/api/addReviews/:id`
 
   * **SAMPLE**
 
-  ` axios.post('/api/addReviews', {
+  ` axios.post('/api/addReviews/${this.props.listingId}', {
       "listing_id" : 1,
       "date" : "August 2030",
       "reviewer_name" : "Patrick Ng",
