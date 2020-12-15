@@ -2,26 +2,22 @@ DROP DATABASE IF EXISTS Reviews;
 
 CREATE DATABASE Reviews;
 
-USE Reviews;
 
-CREATE TABLE Review (
-  id integer NOT NULL SERIAL,
-  listing_id integer NOT NULL SERIAL REFERENCE Listing,
-  date date,
-  reviewer_name varchar(60) NOT NULL,
-  reviewer_picture varchar(255) NOT NULL,
-  comments varchar(255) NOT NULL,
-  cleanliness float(1) NOT NULL,
-  communication float(1) NOT NULL,
-  check_in float(1) NOT NULL,
-  accuracy float(1) NOT NULL,
-  location float(1) NOT NULL,
-  value float(1) NOT NULL,
-  PRIMARY KEY(ID),
+CREATE TABLE IF NOT EXISTS listing (
+  listing_id SERIAL NOT NULL PRIMARY KEY
 );
 
-
-CREATE TABLE Listing (
-  listing_id integer NOT NULL SERIAL,
-  PRIMARY KEY(listing_id)
-)
+CREATE TABLE IF NOT EXISTS review (
+  -- id SERIAL PRIMARY KEY,
+  listing_id SERIAL PRIMARY KEY REFERENCES Listing,
+  "date" varchar(50),
+  reviewer_name varchar(60) NOT NULL,
+  reviewer_picture varchar(255) NOT NULL,
+  comments varchar(2000) NOT NULL,
+  cleanliness INTEGER NOT NULL,
+  communication INTEGER NOT NULL,
+  check_in INTEGER NOT NULL,
+  accuracy INTEGER NOT NULL,
+  location INTEGER NOT NULL,
+  value INTEGER NOT NULL
+);

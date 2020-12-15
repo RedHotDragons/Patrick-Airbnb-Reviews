@@ -2,6 +2,7 @@ const faker = require('faker');
 const fs = require('fs');
 const db = require('./review.js')
 const mongoose = require('mongoose');
+const newRelic = require('newRelic')
 
 var generateReviewerPicture = () => {
   var isFemale = Math.floor(Math.random() * 2);
@@ -23,8 +24,8 @@ var generateReviewerPicture = () => {
     return `https://duysfaces.s3-us-west-1.amazonaws.com/Male/${randomNum}m.jpg`;
   }
 }
-
-const writeReview = () => {
+// let id = 1;
+const writeReview = (id) => {
   const reviews = [];
   const newObj = {};
 
@@ -32,7 +33,7 @@ const writeReview = () => {
       date: faker.date.recent().toString().split('').slice(0, 15).join(''),
       reviewer_name: faker.name.firstName() + ' ' + faker.name.lastName(),
       reviewer_picture: generateReviewerPicture(),
-      comments: faker.lorem.paragraphs(Math.floor(Math.random() * 5) + 1),
+      comments: faker.lorem.paragraphs(1),
       cleanliness: faker.random.number({min: 1, max: 5}),
       communication:faker.random.number({min: 1, max: 5}),
       check_in: faker.random.number({min: 1, max: 5}),
@@ -40,13 +41,16 @@ const writeReview = () => {
       location: faker.random.number({min: 1, max: 5}),
       value: faker.random.number({min: 1, max: 5})
   }
-  reviews.push(reviewObj);
-  newObj['reviews'] = reviews
+  reviews.push(reviewObj)
+  newObj['id'] = id;
+  newObj['reviews'] = reviews;
   return newObj;
 }
-
+let dbID = 1;
 const saveToDB = (cb) => {
-  const reviews = writeReview();
+  dbID++;
+  const reviews = writeReview(dbID);
+
   console.log(reviews)
   db.add(reviews, (err, result) => {
     if (err) {
@@ -65,23 +69,23 @@ saveToDB((err, result) => {
   }
 })
 
-const writeUsers = fs.createWriteStream('userReviews.json', {flags: 'r+', start: 1});
+const writeUsers = fs.createWriteStream('userReviews3.json', {flags: 'r+', start: 1});
 
 
 function writeTenMillionReviews(writer, encoding, callback) {
-  let i = 3;
+  let i = 10000000;
+  let id = 1;
   function write() {
     let ok = true;
     do {
 
-      const review = writeReview();
-      const reviewObj = {
-        reviews: review
-      }
+      const review = writeReview(id);
+      id++;
       i--;
-      const newJson = JSON.stringify(reviewObj) + ',';
+
+      const newJson = JSON.stringify(review) + ',';
       if (i === 0) {
-        writer.write(JSON.stringify(reviewObj) + ']', encoding, callback);
+        writer.write(JSON.stringify(review) + ']', encoding, callback);
       } else {
         ok = writer.write(newJson, encoding);
       }

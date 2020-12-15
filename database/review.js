@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/airbnb', { useMongoClient: true });
 
 let reviewSchema = new mongoose.Schema({
+  id: Number,
   reviews: [{
     date: String,
     reviewer_name: String,
