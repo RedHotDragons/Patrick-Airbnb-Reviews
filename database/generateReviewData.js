@@ -36,13 +36,12 @@ var generateReviewerPicture = () => {
 // Generates 10-20 reviews for a given listingId
 var generateReviewsPerListing = function(listing_id) {
   let reviews = [];
-  let numOfReviews = Math.floor(Math.random() * 10) + 10;
+  let numOfReviews = Math.floor(Math.random() * 10) + 5;
 
   for (let i = 0; i < numOfReviews; i++) {
     let review = { listing_id };
     review['date'] = faker.date.past();
     review['reviewer_name'] = faker.name.firstName() + ' ' + faker.name.lastName();
-    //review['reviewer_picture'] = faker.image.avatar();
     review['reviewer_picture'] = generateReviewerPicture();
     review['comments'] = faker.lorem.paragraphs(Math.floor(Math.random() * 5) + 1);
 
@@ -59,9 +58,7 @@ var generateReviewsPerListing = function(listing_id) {
     .catch(error => {
       console.log('MongoDB error:', error);
     });
-    // Review.remove({listing_id});
 };
-
 
 
 var generateReviews = function(numOfListings) {
@@ -70,12 +67,6 @@ var generateReviews = function(numOfListings) {
   }
 };
 
+
 generateReviews(100);
 
-
-
-// const update = (data, callback) => {
-//   Review.update()
-// }
-
-// module.exports.erase = erase;

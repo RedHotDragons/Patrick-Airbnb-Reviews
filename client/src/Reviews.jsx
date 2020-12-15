@@ -40,17 +40,20 @@ class Reviews extends React.Component {
 
   addReview() {
     axios.post('/api/addReviews', {
-      "listing_id" : 1,
-      "date" : "August 2030",
-      "reviewer_name" : "Patrick Ng",
-      "reviewer_picture" : "https://duysfaces.s3-us-west-1.amazonaws.com/Female/061f.jpg",
-      "comments" : "hi im a test, ignore me plz.",
-      "cleanliness" : 1,
-      "communication" : 1,
-      "check_in" : 1,
-      "accuracy" : 1,
-      "location" : 1,
-      "value" : 1
+      "id" : 1,
+      "reviews": [{
+        "date" : "August 2030",
+        "reviewer_name" : "Patrick Ng",
+        "reviewer_picture" : "https://duysfaces.s3-us-west-1.amazonaws.com/Female/061f.jpg",
+        "comments" : "hi im a test, ignore me plz.",
+        "cleanliness" : 1,
+        "communication" : 1,
+        "check_in" : 1,
+        "accuracy" : 1,
+        "location" : 1,
+        "value" : 1
+      }]
+
   })
   .then((response) => console.log(response))
   .catch((err) => console.log(err))
